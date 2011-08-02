@@ -10,9 +10,6 @@
  * @author Alexander Kuzmin (roosit@abricos.org)
  */
 
-$mod = new SocialModule();
-CMSRegistry::$instance->modules->Register($mod);
-
 class SocialModule extends CMSModule {
 	
 	/**
@@ -26,5 +23,8 @@ class SocialModule extends CMSModule {
 		$this->name = "social";
 	}
 }
+
+$mod = new SocialModule();
+CMSRegistry::$instance->modules->Register($mod);
 
 ?>

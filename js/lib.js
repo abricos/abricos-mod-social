@@ -342,12 +342,15 @@ Component.entryPoint = function(){
 				}
 				
 				var socitem = this.list.get(item.socid);
-				if (L.isNull(socitem.history)){
-					socitem.history = this.initHistory();
-				}
-				socitem.history.add(item);
-				if (socid > 0 && item.socid*1 == socid){
-					socitem.history.setFirstLoadedId(id);
+				// Brick.console([data, socid, item.socid, socitem]);
+				if (!L.isNull(socitem)){
+					if (L.isNull(socitem.history)){
+						socitem.history = this.initHistory();
+					}
+					socitem.history.add(item);
+					if (socid > 0 && item.socid*1 == socid){
+						socitem.history.setFirstLoadedId(id);
+					}
 				}
 			}
 		},
@@ -366,7 +369,7 @@ Component.entryPoint = function(){
 		},
 		
 		_ajaxResult: function(r){
-			
+			// Brick.console(r);
 			this.socialUpdate(r['changes']['board']);
 	
 			var histe = new History(), hsts = r['changes']['hst'];
