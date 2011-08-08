@@ -166,6 +166,7 @@ Component.entryPoint = function(){
 		init: function(di){
 			HistoryItem.superclass.init.call(this, di);
 			
+			this.id = di['id']*1;
 			this.socid = di['sid'];		// идентификатор социального объекта
 			this.userid = di['uid'];	// идентификатор пользователя
 			this.dl = di['dl']*1;		// дата/время действия (в unix)
@@ -179,8 +180,8 @@ Component.entryPoint = function(){
 	
 
 	var hSort = function(a, b){
-		if (a.id > b.id){ return -1;
-		}else if(a.id < b.id){ return 1; }
+		if (a.id > b.id){ return -1;}
+		else if(a.id < b.id){ return 1; }
 		return 0;
 	};
 	var hSortDesc = function(a, b){return hSort(b, a);};
