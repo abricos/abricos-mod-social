@@ -1,0 +1,72 @@
+<!--{panel}-->
+<div class='hd'>Задачи</div>
+<div class='bd aw-social'>
+	
+	<div id="{i#wait}" class="wait">
+		<br />
+		Идет загрузка. <br />
+		Пожалуйста, подождите...<br />
+		<img src="/images/loading_line.gif" />
+	</div>
+	
+	<div class="profile" id="{i#id}" style="display: none">
+	
+		<table><tbody><tr>
+			<td>
+			
+				<div class="fotocont">
+					<div class="foto" id="{i#foto}">
+						<img src="/modules/uprofile/images/nofoto180" />
+					</div>
+					
+					<div class="_ismyprofile">
+						<a href="#app=social/user/showEditProfilePanel/{v#uid}/">Редактировать профиль</a>
+						<br />
+						<a href="#" id="{i#fotoupload}">Изменить фотографию</a>
+					</div>
+				</div>
+				
+			</td>
+			<td>
+				<div class="uinfo">
+					<span class="fullname" id="{i#fullname}"></span>
+					
+					<div id="{i#list}"></div>
+				</div>
+			</td>
+		</tr></tbody></table>
+	
+	</div>
+
+</div>
+
+<!--{runm}-->
+<dl>
+	<dt>Учетная запись:</dt>
+	<dd>{v#value}</span></td>
+</dl>
+
+
+<!--{rbirthday}-->
+<dl>
+	<dt>Дата рождения:</dd>
+	<dd>{v#value}</span></td>
+</dl>
+
+<!--{rdescript}-->
+<dl>
+	<dt>О себе:</dd>
+	<dd>{v#value}</span></td>
+</dl>
+
+<!--{rdl}-->
+<dl>
+	<dt>Регистрация:</dd>
+	<dd>{v#value}</span></td>
+</dl>
+
+<!--{rlv}-->
+<dl>
+	<dt>Активность:</dd>
+	<dd>{v#value}</span></td>
+</dl>
