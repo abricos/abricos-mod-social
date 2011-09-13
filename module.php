@@ -22,6 +22,18 @@ class SocialModule extends CMSModule {
 		// Название модуля
 		$this->name = "social";
 	}
+	
+	/**
+	* @return SocialManager
+	*/
+	public function GetManager(){
+		if (is_null($this->_manager)){
+			require_once 'includes/manager.php';
+			$this->_manager = new SocialManager($this);
+		}
+		return $this->_manager;
+	}
+	
 }
 
 $mod = new SocialModule();

@@ -13,6 +13,10 @@ Component.entryPoint = function(){
 				window.location.href = "#app=social/user/showProfilePanel/"+user.id+"/";
 			};
 		});
+		var el = document.getElementById('myprofileedit');
+		if (el){
+			el.href = "#app=social/user/showEditProfilePanel/"+Brick.env.user.id+"/";
+		}
 	});
 
 };
