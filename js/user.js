@@ -123,7 +123,7 @@ Component.entryPoint = function(){
 	NS.UserProfilePanel = UserProfilePanel;
 	
 	API.showProfilePanel = function(userid){
-		new UserProfilePanel(userid);
+		return new UserProfilePanel(userid);
 	};
 
 	var UserProfileEditPanel = function(userid){
@@ -266,12 +266,6 @@ Component.entryPoint = function(){
 	NS.UserProfileEditPanel = UserProfileEditPanel;
 	
 	API.showEditProfilePanel = function(userid){
-		new UserProfileEditPanel(userid);
-/*
-		if (Brick.env.user.id*1 != userid*1){
-			new UserProfilePanel(userid);
-		}else{
-		}
-		/**/
+		return new UserProfileEditPanel(userid);
 	};
 };

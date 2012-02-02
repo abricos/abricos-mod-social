@@ -9,7 +9,7 @@
 
 class SocialQuery {
 
-	public static function UserProfileUpdate(CMSDatabase $db, $userid, $d){
+	public static function UserProfileUpdate(Ab_Database $db, $userid, $d){
 		$sql = "
 			UPDATE ".$db->prefix."user
 			SET

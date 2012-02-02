@@ -121,8 +121,11 @@ Component.entryPoint = function(){
 		getUserName: function(scr){
 			return UP.builder.getUserName(this.getData(), scr);
 		},
-		avatar45: function(){
-			return UP.avatar.get45(this.getData());
+		avatar24: function(isUrl){
+			return UP.avatar.get24(this.getData(), isUrl);
+		},
+		avatar45: function(isUrl){
+			return UP.avatar.get45(this.getData(), isUrl);
 		}
 		
 	});

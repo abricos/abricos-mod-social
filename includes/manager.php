@@ -10,7 +10,7 @@
 
 require_once('dbquery.php');
 
-class SocialManager extends ModuleManager {
+class SocialManager extends Ab_ModuleManager {
 	
 	/**
 	 * @var SocialModule
@@ -18,27 +18,18 @@ class SocialManager extends ModuleManager {
 	public $module = null;
 	
 	/**
-	 * User
-	 * @var User
-	 */
-	public $user = null;
-	public $userid = 0;
-	
-	/**
 	 * @var SocialManager
 	 */
 	public static $instance = null; 
 	
-	public function SocialManager(SocialModule $module){
-		parent::ModuleManager($module);
+	public function __construct(SocialModule $module){
+		parent::__construct($module);
 		
-		$this->user = CMSRegistry::$instance->modules->GetModule('user');
-		$this->userid = $this->user->info['userid'];
 		SocialManager::$instance = $this;
 	}
 	
 	private function _AJAX($modname, $data){
-		$module = CMSRegistry::$instance->modules->GetModule($modname);
+		$module = Abricos::GetModule($modname);
 		if (empty($module)){ 
 			return null; 
 		}
@@ -54,7 +45,9 @@ class SocialManager extends ModuleManager {
 	}
 	
 	public function SaveProfile($userid, $d){
-		$utmf = CMSRegistry::$instance->GetUserTextManager(true);
+		if ($this->userid != $userid){ return null; }
+		
+		$utmf = Abricos::TextParser(true);
 		$d->userid = $userid;
 		$d->firstname = $utmf->Parser($d->firstname);
 		$d->lastname = $utmf->Parser($d->lastname);

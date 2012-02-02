@@ -10,14 +10,14 @@
  * @author Alexander Kuzmin (roosit@abricos.org)
  */
 
-class SocialModule extends CMSModule {
+class SocialModule extends Ab_Module {
 	
 	/**
 	 * Конструктор
 	 */
 	public function __construct(){
 		// Версия модуля
-		$this->version = "0.1";
+		$this->version = "0.1.1";
 		
 		// Название модуля
 		$this->name = "social";
@@ -36,7 +36,6 @@ class SocialModule extends CMSModule {
 	
 }
 
-$mod = new SocialModule();
-CMSRegistry::$instance->modules->Register($mod);
+Abricos::ModuleRegister(new SocialModule());
 
 ?>
