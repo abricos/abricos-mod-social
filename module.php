@@ -17,7 +17,7 @@ class SocialModule extends Ab_Module {
 	 */
 	public function __construct(){
 		// Версия модуля
-		$this->version = "0.1.1";
+		$this->version = "0.1.2";
 		
 		// Название модуля
 		$this->name = "social";

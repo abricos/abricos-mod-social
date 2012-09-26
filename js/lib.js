@@ -10,14 +10,11 @@ Component.requires = {
         {name: 'uprofile', files: ['users.js']}
 	]		
 };
-Component.entryPoint = function(){
+Component.entryPoint = function(NS){
 
 	var Dom = YAHOO.util.Dom,
 		E = YAHOO.util.Event,
-		L = YAHOO.lang,
-		TMG = this.template,
-		NS = this.namespace,
-		API = NS.API; 
+		L = YAHOO.lang; 
 	
 	var UP = Brick.mod.uprofile;
 
@@ -317,7 +314,18 @@ Component.entryPoint = function(){
 		},
 		
 		initUserConfig: function(d){return new UserConfig(d);},
-		initUserList: function(d){return new UserList(d);},
+		initUserList: function(d){
+			if (!L.isArray(d)){
+				var arr = [];
+				for (var n in d){
+					arr[arr.length] = d[n];
+				}
+				d = arr;
+			}
+			
+			UP.viewer.users.update(d);
+			return UP.viewer.users;
+		},
 
 		initSocialList: function(d){return new SocialItemList(d);},
 		socialUpdate: function(d){
