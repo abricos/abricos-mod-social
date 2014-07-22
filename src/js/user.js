@@ -24,15 +24,7 @@ Component.entryPoint = function(){
 		API = NS.API,
 		UP = Brick.mod.uprofile;
 	
-
-	var initCSS = false, buildTemplate = function(w, ts){
-		if (!initCSS){
-			Brick.util.CSS.update(Brick.util.CSS['social']['user']);
-			delete Brick.util.CSS['social']['user'];
-			initCSS = true;
-		}
-		w._TM = TMG.build(ts); w._T = w._TM.data; w._TId = w._TM.idManager;
-	};
+    var buildTemplate = this.buildTemplate;
 	
 	var UserProfilePanel = function(userid){
 		this.userid = userid;
